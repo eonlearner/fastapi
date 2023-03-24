@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import config
 
-DATABASE_URL = "mysql+mysqlconnector://root:ani786*@localhost:3306/eonlearning_db"
+DATABASE_URL = "mysql+mysqlconnector://root:Aniruddha1994@localhost:3306/eonlearning_db"
 
 db_engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=db_engine)

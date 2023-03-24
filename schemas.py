@@ -10,8 +10,8 @@ class CreateAndUpdateUser(BaseModel):
     email: str
     eid: int
     dept: str
-    adhr: int
-    image: str
+    adhr: str
+    image: bytes
     username: str
     password: str
     categorytype: CategoryType

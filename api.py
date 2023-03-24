@@ -15,11 +15,11 @@ class Users:
     session: Session = Depends(get_db)
 
     # API to get the list of user info
-    @router.get("/users", response_model=PaginatedUserInfo)
-    def list_users(self, limit: int = 10, offset: int = 0):
+    @router.get("/users")
+    def list_users(self):
 
-        users_list = get_all_users(self.session, limit, offset)
-        response = {"limit": limit, "offset": offset, "data": users_list}
+        users_list = get_all_users(self.session)
+        response = {"data": users_list}
 
         return response
 

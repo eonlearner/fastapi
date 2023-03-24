@@ -6,8 +6,8 @@ from schemas import CreateAndUpdateUser
 
 
 # Function to get list of user info
-def get_all_users(session: Session, limit: int, offset: int) -> List[UserInfo]:
-    return session.query(UserInfo).offset(offset).limit(limit).all()
+def get_all_users(session: Session) -> List[UserInfo]:
+    return session.query(UserInfo).all()
 
 
 # Function to  get info of a particular user
@@ -22,7 +22,7 @@ def get_user_info_by_id(session: Session, _id: int) -> UserInfo:
 
 # Function to add a new user info to the database
 def create_user(session: Session, user_info: CreateAndUpdateUser) -> UserInfo:
-    user_details = session.query(UserInfo).filter(UserInfo.firstname == user_info.firstname, UserInfo.modelName == user_info.modelName).first()
+    user_details = session.query(UserInfo).filter(UserInfo.firstname == user_info.firstname).first()
     if user_details is not None:
         raise UserInfoInfoAlreadyExistError
 
